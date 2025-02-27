@@ -1,0 +1,174 @@
+@font-face {
+    font-family: "quicksand-regular";
+    src: url('/fonts/Quicksand-Regular.ttf');
+}
+
+:root {
+    --color-yellow: rgba(255, 198, 30, 1);
+    --color-blue: rgba(0, 51, 127, 1);
+
+    --button-bg: var(--color-yellow);
+    --button-color: var(--color-blue);
+
+    --container-max-width: 1200px;
+}
+
+body {
+    margin: 0;
+}
+
+* {
+    font-family: quicksand-regular;
+    color: var(--color-blue);
+}
+
+label,
+input[type="checkbox"],
+input[type="radio"] {
+    cursor: pointer;
+}
+
+/* Buttons */
+button,
+a[role="button"] {
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    transition: 0.2s all ease-out;
+
+    &:hover, &:focus {
+        border-color: var(--button-color);
+        outline: none;
+        font-weight: bold;
+    }
+}
+
+button.yellow,
+a[role="button"].yellow {
+    color: var(--button-color);
+    background-color: var(--button-bg);
+    border: 1px solid var(--button-bg);
+}
+
+button.blue,
+a[role="button"].blue {
+    --button-color: #fff;
+    --button-bg: var(--color-blue);
+
+    color: var(--button-color);
+    background-color: var(--button-bg);
+    border: 1px solid var(--button-bg);
+
+    &:hover {
+        border-color: var(--button-color);
+    }
+}
+
+/***********/
+
+/* Inputs */
+input {
+    border: 1px solid #b5b5bc;
+    color: #070721;
+}
+
+/**********/
+
+.container {
+    padding: 0;
+    max-width: var(--container-max-width);
+    margin: auto;
+
+    @media only screen and (max-width: 1200px) {
+        padding: 0 1rem;
+    }
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 3em;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+    .headerGrid {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+
+        /* Logo */
+        picture {
+            width: 20%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        /* Texten in header */
+        .headerTexts {
+            h1 {
+                color: crimson;
+            }
+        }
+    }
+}
+
+main {
+    margin-bottom: 5em;
+
+    .pageTitle {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: .5rem;
+        margin-bottom: 1em;
+
+        div {
+            color: var(--color-blue);
+            background: var(--color-yellow);
+            padding: 0.25em 0.5em;
+        }
+    }
+
+    .questionGrid {
+        display: grid;
+        gap: 0 1em;
+        grid-template-columns: auto 1fr 1fr;
+        margin-bottom: 1em;
+
+        .questions {
+            display: grid;
+            gap: 0 0.5em;
+
+            &:has(input[type='text']) {
+                grid-template-columns: auto auto auto;
+
+                @media only screen and (max-width: 767.98px) {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            &:has(input[type='checkbox']) {
+                grid-template-columns: auto;
+            }
+        }
+
+        @media only screen and (max-width: 767.98px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .buttonContainer {
+        display: flex;
+        align-items: center;
+
+        &:has(.next):has(.prev) {
+            justify-content: space-between;
+        }
+
+        &:has(.next) {
+            justify-content: end;
+        }
+    }
+}

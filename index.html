@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <title>Erfbelasingsformulier</title>
+
+    <!-- CSS & JS -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <header>
+        <section class="container">
+            <div class="headerGrid">
+                <picture>
+                    <img src="/images/ns_logo.png" width="130" height="50" alt="NS Logo" />
+                </picture>
+
+                <section class="headerTexts">
+                    <h1>DIT IS EEN SCHOOLPROJECT!</h1>
+                    <h3>Tymo Smids</h3>
+                </section>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <section class="container">
+            <form id="form">
+                <section class="pageTitle">
+                    <div>1</div>
+                    <div>Gegevens van de overledene</div>
+                </section>
+
+                <!-- Vraag 1a -->
+                <section class="questionGrid">
+                    <div class="questionNumber">1a</div>
+                    <div class="questionInfo">Voorletter(s), tussenvoegsel(s) en achternaam</div>
+                    <div class="questions">
+                        <input type="text" placeholder="Voorletter(s)" />
+                        <input type="text" placeholder="Tussenvoegsel(s)" />
+                        <input type="text" placeholder="Achternaam" />
+                    </div>
+                </section>
+
+                <!-- Vraag 1b -->
+                <section class="questionGrid">
+                    <div class="questionNumber">1b</div>
+                    <div class="questionInfo">
+                        Was de overledene getrouwd of had de overledene een
+                        geregistreerde partner op het moment van overlijden?
+                    </div>
+                    <div class="questions">
+                        <label><input type="radio" name="radio1" />Nee. Ga verder met vraag 1c.</label>
+                        <label><input type="radio" name="radio1" />Ja</label>
+                    </div>
+                </section>
+
+                <section class="questionGrid">
+                    <div class="questionNumber">&nbsp;&nbsp;</div>
+                    <div class="questionInfo">
+                        Hadden de overledene en diens echtgenoot of
+                        geregistreerde partner huwelijkse of partnerschapsvoorwaarden laten vastleggen in een notariële
+                        akte?
+                    </div>
+                    <div class="questions">
+                        <label><input type="radio" name="radio2" />Nee. Ga verder met vraag 1c.</label>
+                        <label><input type="radio" name="radio2" />Ja. Stuur een kopie van de akte mee met de
+                            aangifte.</label>
+                    </div>
+                </section>
+
+                <section class="questionGrid">
+                    <div class="questionNumber">&nbsp;&nbsp;</div>
+                    <div class="questionInfo">
+                        Hadden de overledene en diens partner een finaal
+                        verrekenbeding?
+                    </div>
+                    <div class="questions">
+                        <label><input type="radio" name="radio3" />Nee</label>
+                        <label><input type="radio" name="radio3" />Ja</label>
+                    </div>
+                </section>
+
+                <section class="questionGrid">
+                    <div class="questionNumber">&nbsp;&nbsp;</div>
+                    <div class="questionInfo">
+                        Datum huwelijkse of partnerschapsvoorwaarden
+                    </div>
+                    <div class="questions">
+                        <input type="date" />
+                    </div>
+                </section>
+
+                <!-- Vraag 1c -->
+                <section class="questionGrid">
+                    <div class="questionNumber">1c</div>
+                    <div class="questionInfo">
+                        Had de overledene kinderen?
+                    </div>
+                    <div class="questions">
+                        <label><input type="radio" name="radio4" />Nee. Ga verder met vraag 1d.</label>
+                        <label><input type="radio" name="radio4" />Ja</label>
+                    </div>
+                </section>
+
+                <section class="questionGrid">
+                    <div class="questionNumber">&nbsp;&nbsp;</div>
+                    <div class="questionInfo">
+                        Is 1 van deze kinderen eerder overleden dan de
+                        overledene voor wie u nu aangifte doet?
+                    </div>
+                    <div class="questions">
+                        <label><input type="radio" name="radio5" />Nee. Ga verder met vraag 1d.</label>
+                        <label><input type="radio" name="radio5" />Ja</label>
+                    </div>
+                </section>
+
+                <section class="questionGrid">
+                    <div class="questionNumber">&nbsp;&nbsp;</div>
+                    <div class="questionInfo">
+                        Had dit overleden kind zelf kinderen?
+                    </div>
+                    <div class="questions">
+                        <label><input type="radio" name="radio6" />Nee</label>
+                        <label><input type="radio" name="radio6" />Ja</label>
+                    </div>
+                </section>
+
+                <!-- Vraag 1d -->
+                <section class="questionGrid">
+                    <div class="questionNumber">1d</div>
+                    <div class="questionInfo">
+                        Had de overledene een testament?
+                    </div>
+                    <div class="questions">
+                        <label><input type="radio" name="radio7" />Nee. Ga verder met vraag 2</label>
+                        <label><input type="radio" name="radio7" />Ja. Vul de gegevens in van de notaris die het
+                            testament heeft opgemaakt en de
+                            datum van het testament.</label>
+                    </div>
+                </section>
+
+                <section class="questionGrid">
+                    <div class="questionNumber">&nbsp;&nbsp;</div>
+                    <div class="questionInfo">
+                        Protocolnummer notaris
+                    </div>
+                    <div class="questions">
+                        <input type="text" />
+                    </div>
+                </section>
+
+                <section class="questionGrid">
+                    <div class="questionNumber">&nbsp;&nbsp;</div>
+                    <div class="questionInfo">
+                        Voorletter(s), tussenvoegsel(s)
+                        en achternaam
+                    </div>
+                    <div class="questions">
+                        <input type="text" />
+                        <input type="text" />
+                        <input type="text" />
+                    </div>
+                </section>
+
+                <section class="questionGrid">
+                    <div class="questionNumber">&nbsp;&nbsp;</div>
+                    <div class="questionInfo">
+                        Vestigingsplaats
+                    </div>
+                    <div class="questions">
+                        <input type="text" />
+                    </div>
+                </section>
+
+                <section class="questionGrid">
+                    <div class="questionNumber">&nbsp;&nbsp;</div>
+                    <div class="questionInfo">
+                        Datum van het testament of
+                        van de laatste wijziging
+                    </div>
+                    <div class="questions">
+                        <input type="date" />
+                    </div>
+                </section>
+
+                <section class="buttonContainer">
+                    <button type="submit" class="yellow next">Volgende <i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                </section>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div id="result"></div>
+    </footer>
+
+</body>
+
+</html>
