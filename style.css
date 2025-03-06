@@ -28,6 +28,18 @@ input[type="radio"] {
     cursor: pointer;
 }
 
+input {
+    &:user-invalid {
+        border-color: crimson;
+        background-color: lightcoral;
+    }
+
+    &:user-valid {
+        border-color: forestgreen;
+        background-color: lightgreen;
+    }
+}
+
 /* Buttons */
 button,
 a[role="button"] {
@@ -118,7 +130,7 @@ header {
 main {
     margin-bottom: 5em;
 
-    .pageTitle {
+    .questionTitle {
         display: grid;
         grid-template-columns: auto 1fr;
         gap: .5rem;
@@ -134,6 +146,43 @@ main {
     fieldset {
         margin-left: 0;
         margin-right: 0;
+    }
+
+    .question {
+        margin-bottom: 1em;
+
+        fieldset {
+            > div {
+                display: grid;
+                align-items: center;
+                grid-template-columns: 1fr;
+                gap: 1em;
+
+                &:has(p):has(div) {
+                    grid-template-columns: 1fr 1fr;
+
+                    @media (max-width: 457px) {
+                        grid-template-columns: 1fr;
+                    }
+                }
+
+                .twoColumns {
+                    grid-column: 1 / span 2;
+
+                    @media (max-width: 457px) {
+                        grid-column: 1;
+                    }
+                }
+            }
+
+            &.verkrijger > div {
+                grid-template-columns: 1fr 1fr 1fr;
+
+                @media (max-width: 457px) {
+                    grid-template-columns: 1fr;
+                }
+            }
+        }
     }
 
     table {
@@ -178,7 +227,7 @@ main {
     /* Hide vragen als invoer ze skipt */
     fieldset.question:has(div[data-skip-sibling] input[type="radio"][value="yes"]:checked) {
         > fieldset[hidden] {
-            display: block;
+            display: grid;
         }
     }
 }

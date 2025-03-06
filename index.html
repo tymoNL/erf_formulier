@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="localstorage.js"></script>
     <script src="verkrijgers.js"></script>
+    <script src="main.js"></script>
 </head>
 
 <body>
@@ -36,8 +37,8 @@
     <main>
         <section class="container">
             <form id="form">
-                <section class="pageTitle">
-                    <div>1</div>
+                <section class="questionTitle">
+                    <div><b>1</b></div>
                     <div>Gegevens van de overledene</div>
                 </section>
 
@@ -47,7 +48,7 @@
 
                     <!-- Vraag 1b -->
                     <fieldset class="mainQuestion">
-                        <legend>1b</legend>
+                        <legend>1a</legend>
 
                         <div>
                             <p>
@@ -64,9 +65,9 @@
                         </div>
                     </fieldset>
 
-                    <!-- Vraag 1b.3 -->
+                    <!-- Vraag 1a.2 -->
                     <fieldset hidden data-hidable="true">
-                        <legend>1b.3</legend>
+                        <legend>1a.2</legend>
 
                         <div>
                             <p>
@@ -74,15 +75,15 @@
                                 verrekenbeding?
                             </p>
                             <div>
-                                <label><input type="radio" name="radio1-3" value="no" />Nee</label><br />
-                                <label><input type="radio" name="radio1-3" value="yes" />Ja</label>
+                                <label><input type="radio" name="radio1-2" value="no" />Nee</label><br />
+                                <label><input type="radio" name="radio1-2" value="yes" />Ja</label>
                             </div>
                         </div>
                     </fieldset>
 
-                    <!-- Vraag 1b.3 -->
+                    <!-- Vraag 1a.3 -->
                     <fieldset hidden data-hidable="true">
-                        <legend>1b.4</legend>
+                        <legend>1a.3</legend>
 
                         <div>
                             <p>
@@ -97,22 +98,27 @@
                     </fieldset>
                 </fieldset>
 
+                <section class="questionTitle">
+                    <div><b>2</b></div>
+                    <div>Voor wie doet u aangifte</div>
+                </section>
+
                 <fieldset class="question verkrijgerContainer">
-                    <legend>3 Voor wie doet u aangifte</legend>
+                    <legend>2 Voor wie doet u aangifte</legend>
 
                     <fieldset>
-                        <legend>3a</legend>
+                        <legend>2a</legend>
 
                         <div>
                             <p>Zijn er verkrijgers voor wie u <b>geen</b> aangifte doet?</p>
 
                             <div data-skip-sibling="possible">
                                 <label>
-                                    <input type="radio" name="radio3-1" value="no" />
-                                    Nee. Ga naar vraag 3c.
+                                    <input type="radio" name="radio2-1" value="no" />
+                                    Nee. Ga naar vraag 2b.
                                 </label><br />
                                 <label>
-                                    <input type="radio" name="radio3-1" id="addVerkrijger" value="yes" />
+                                    <input type="radio" name="radio2-1" id="addVerkrijger" value="yes" />
                                     Ja. Vul hieronder de gegevens in van de verkrijgers waarvoor u geen aangifte doet.
                                     Gaat het om een instelling? Vul dan de naam van deinstelling in bij ‘achternaam’.
                                     Het invullen van een bsn is niet verplicht, maar wel handig voor ons.
@@ -121,27 +127,127 @@
                         </div>
                     </fieldset>
 
-                    <fieldset id="verkrijger" hidden data-hidable="possible">
+                    <fieldset id="verkrijger" class="verkrijger" hidden data-hidable="possible">
                         <legend>Verkrijger 1</legend>
-                    
+
                         <div>
-                            <div>
+                            <label>
+                                <span>Voorletter(s)</span><br />
+                                <input type="text" placeholder="Voorletter(s)" />
+                            </label>
+                            <label>
+                                <span>tussenvoegsel(s)</span><br />
+                                <input type="text" placeholder="tussenvoegsel(s)" />
+                            </label>
+                            <label>
+                                <span>achternaam</span><br />
+                                <input type="text" placeholder="achternaam" />
+                            </label>
+                        </div>
+                    </fieldset>
+                </fieldset>
+
+                <section class="questionTitle">
+                    <div><b>3</b></div>
+                    <div>Aanvraag toepassing van de bedrijfsopvolgingsregeling</div>
+                </section>
+
+                <fieldset class="question verkrijgerContainer">
+                    <legend>3 Aanvraag toepassing van de bedrijfsopvolgingsregeling</legend>
+
+                    <fieldset>
+                        <legend>3a</legend>
+
+                        <div>
+                            <p>
+                                Wij raden u aan een adviseur in te schakelen om de vragen te beantwoorden
+                                die horen bij de aanvraag van de bedrijfsopvolgingsregeling.
+                                Vul deze vraag alleen in als 1 of meerdere verkrijgers de onderneming
+                                voortzetten en toepassing van de bedrijfsopvolgingsregeling aanvragen
+                            </p>
+
+                            <p>
+                                <b>Let op!</b> Als er sprake is van
+                                <a href="#" id="beleggingsvermogenLink"
+                                    data-dialog-target="dialog1">beleggingsvermogen</a>,
+                                <a href="#" id="buitenvennootschappelijkLink"
+                                    data-dialog-target="dialog2">buitenvennootschappelijk</a>
+                                vermogen en/of ter beschikking gestelde panden moet u een rekenhulp in
+                                detoelichting invullen. Neem de uitkomst van die rekenhulp over in dit
+                                formulier. Bewaar de ingevulde rekenhulp(en). Wij kunnen u daar om vragen.
+                            </p>
+
+                            <!-- beleggingsvermogen uitleg -->
+                            <dialog id="dialog1">
+                                <p>vermogen is geïnvesteerd in vastgoed dat verhuurd wordt aan derden</p>
+                                <button type="button" autofocus data-close>Sluiten</button>
+                            </dialog>
+
+                            <!-- buitenvennootschappelijk uitleg -->
+                            <dialog id="dialog2">
+                                <p>
+                                    Als er door een vennoot een bedrijfsmiddel op persoonlijke titel
+                                    wordt aangekocht en ter beschikking wordt gesteld aan de Vof,
+                                    dan spreekt men van buitenvennootschappelijk ondernemingsvermogen
+                                </p>
+                                <button type="button" autofocus data-close>Sluiten</button>
+                            </dialog>
+
+
+
+                            <div class="twoColumns" data-skip-sibling="possible">
+                                <p>
+                                    Zijn er personen, erkende doelen of instellingen die gebruik willen maken van de
+                                    bedrijfsopvolgingsregeling?
+                                </p>
+
                                 <label>
-                                    Voorletter(s)
-                                    <input type="text" placeholder="Voorletter(s)" />
-                                </label>
+                                    <input type="radio" name="radio3-1" value="no" />
+                                    Nee. Ga naar vraag 4.
+                                </label><br />
                                 <label>
-                                    tussenvoegsel(s)
-                                    <input type="text" placeholder="tussenvoegsel(s)" />
-                                </label>
-                                <label>
-                                    achternaam
-                                    <input type="text" placeholder="achternaam" />
+                                    <input type="radio" name="radio3-1" value="yes" />
+                                    Ja. Vul hieronder de gegevens in van de verkrijgers waarvoor u geen aangifte doet.
+                                    Gaat het om een instelling? Vul dan de naam van deinstelling in bij ‘achternaam’.
+                                    Het invullen van een bsn is niet verplicht, maar wel handig voor ons.
                                 </label>
                             </div>
                         </div>
                     </fieldset>
 
+                    <!-- Vraag 3b -->
+                    <fieldset hidden data-hidable="true">
+                        <legend>3b</legend>
+
+                        <div>
+                            <p class="twoColumns">
+                                Gegevens van de onderneming waarvoor u de bedrijfsopvolgingsregeling aanvraagt
+                                Wilt u voor meerdere ondernemingen een aanvraag doen voor toepassing van de
+                                bedrijfsopvolgingsregeling? Maak dan 1 of meer kopieën van
+                                deze bladzijde. De gegevens die u niet meer kunt invullen op dit formulier, vult u
+                                in op de kopieën, inclusief de naam van de bijbehorende onderneming.
+                                Schrijf op iedere kopie het bsn van de overledene.
+                            </p>
+                            <div class="twoColumns">
+                                <label>
+                                    Bsn/RSIN/fiscaal identificatienummer van de onderneming
+                                    <input placeholder="012345678" data-custom-bsn />
+                                </label>
+                            </div>
+
+                            <div>
+                                <label>
+                                    Naam van de onderneming
+                                    <input type="text" placeholder="test.BV" />
+                                </label>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <section class="buttonContainer">
+                        <button type="submit" class="yellow next">Verstuur</button>
+                    </section>
                 </fieldset>
             </form>
         </section>

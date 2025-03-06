@@ -16,6 +16,7 @@ window.addEventListener("load", () => {
 
         /* Fieldset attributes */
         nieuwVerkrijger.id = `verkrijger-${verkrijgerCount}`;
+        nieuwVerkrijger.classList = `verkrijger`;
         nieuwVerkrijger.hidden = true; 
         nieuwVerkrijger.dataset.hidable = "possible"; 
 
