@@ -127,8 +127,24 @@ header {
     }
 }
 
+#result {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
 main {
     margin-bottom: 5em;
+
+    form {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
 
     .questionTitle {
         display: grid;

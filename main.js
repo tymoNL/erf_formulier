@@ -37,4 +37,11 @@ window.addEventListener("load", () => {
     });
 
     validate();
+
+
+    let sendForm = document.getElementById('sendForm');
+    sendForm.addEventListener('click', function() {
+        document.getElementById('form').classList.remove('active');
+        document.getElementById('result').classList.add('active');
+    });
 });

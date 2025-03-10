@@ -36,7 +36,7 @@
 
     <main>
         <section class="container">
-            <form id="form">
+            <form id="form" class="active">
                 <section class="questionTitle">
                     <div><b>1</b></div>
                     <div>Gegevens van de overledene</div>
@@ -103,7 +103,7 @@
                     <div>Voor wie doet u aangifte</div>
                 </section>
 
-                <fieldset class="question verkrijgerContainer">
+                <fieldset class="question verkrijgerContainer" id="verkrijgerContainer">
                     <legend>2 Voor wie doet u aangifte</legend>
 
                     <fieldset>
@@ -133,7 +133,7 @@
                         <div>
                             <label>
                                 <span>Voorletter(s)</span><br />
-                                <input type="text" placeholder="Voorletter(s)" />
+                                <input type="text" placeholder="Voorletter(s)" minlength="1" />
                             </label>
                             <label>
                                 <span>tussenvoegsel(s)</span><br />
@@ -141,7 +141,7 @@
                             </label>
                             <label>
                                 <span>achternaam</span><br />
-                                <input type="text" placeholder="achternaam" />
+                                <input type="text" placeholder="achternaam" minlength="1" />
                             </label>
                         </div>
                     </fieldset>
@@ -152,7 +152,7 @@
                     <div>Aanvraag toepassing van de bedrijfsopvolgingsregeling</div>
                 </section>
 
-                <fieldset class="question verkrijgerContainer">
+                <fieldset class="question">
                     <legend>3 Aanvraag toepassing van de bedrijfsopvolgingsregeling</legend>
 
                     <fieldset>
@@ -246,7 +246,7 @@
                     </fieldset>
 
                     <section class="buttonContainer">
-                        <button type="submit" class="yellow next">Verstuur</button>
+                        <button type="button" class="yellow next" id="sendForm">Verstuur</button>
                     </section>
                 </fieldset>
             </form>

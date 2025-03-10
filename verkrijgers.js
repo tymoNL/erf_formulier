@@ -2,7 +2,7 @@ window.addEventListener("load", () => {
 
     /* Verkrijger container */
     var verkrijgerContainer = document.getElementById("verkrijgerContainer");
-    var verkrijgerCount = document.querySelectorAll("fieldset[id^='verkrijger']").length;
+    var verkrijgerCount = document.querySelectorAll("fieldset[id='verkrijger']").length;
 
     /* Check of een veld in de verkrijger is ingevuld */
     function isVerkrijgerIngevuld(fieldset) {
@@ -22,21 +22,21 @@ window.addEventListener("load", () => {
 
         nieuwVerkrijger.innerHTML = `
             <legend>Verkrijger ${verkrijgerCount}</legend>
-            <div>
-                <label>
-                    Voorletter(s)
-                    <input type="text" placeholder="Voorletter(s)" />
-                </label>
-                <label>
-                    tussenvoegsel(s)
-                    <input type="text" placeholder="tussenvoegsel(s)" />
-                </label>
-                <label>
-                    Achternaam
-                    <input type="text" placeholder="Achternaam" />
-                </label>
-            </div>
-        `;
+                <div>
+                    <label>
+                        <span>Voorletter(s)</span><br />
+                        <input type="text" placeholder="Voorletter(s)" />
+                    </label>
+                    <label>
+                        <span>tussenvoegsel(s)</span><br />
+                        <input type="text" placeholder="tussenvoegsel(s)" />
+                    </label>
+                    <label>
+                        <span>achternaam</span><br />
+                        <input type="text" placeholder="achternaam" />
+                    </label>
+                </div>
+            `;
 
         /* Voeg toe aan container */
         verkrijgerContainer.appendChild(nieuwVerkrijger);
