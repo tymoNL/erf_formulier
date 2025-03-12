@@ -1,32 +1,39 @@
-window.addEventListener("load", (event) => {
-    var form = document.getElementById('form');
+window.addEventListener("load", () => {
+    var form = document.getElementById("form");
 
-    // Check browser support
-    if (typeof (Storage) !== "undefined") {
-
-        // Data ophalen als het er is en anders data array aanmaken
+    if (typeof Storage !== "undefined") {
+        // Data ophalen uit localStorage
         var storedData = localStorage.getItem("formData");
-        var items = storedData ? JSON.parse(storedData) : [];
 
-        // De invoervelden vullen met de waardes uit de localstorage
-        if (items.length > 0) {
-            items.forEach(item => {
-                var inputField = form.querySelector(`[name="${item.name}"]`);
-                if (inputField) {
+        if (storedData) {
+            var formData = new FormData();
+            JSON.parse(storedData).forEach(({name, value}) => formData.append(name, value));
 
-                    // Als het checkboxen of radiobuttons zijn
-                    if (inputField.type === "radio" || inputField.type === "checkbox") {
-                        var matchingInput = form.querySelector(`[name="${item.name}"][value="${item.value}"]`);
-                        if (matchingInput) {
-                            matchingInput.checked = true;
-                        }
+            // Velden invullen met opgeslagen waarden
+            for (var [name, value] of formData.entries()) {
+                var input = form.querySelector(`[name="${name}"]`);
 
-                    // Input waardes zetten als het geen radio of checkbox is
+                if (input) {
+                    if (input.type === "radio" || input.type === "checkbox") {
+                        var matchingInput = form.querySelector(`[name="${name}"][value="${value}"]`);
+                        if (matchingInput) matchingInput.checked = true;
                     } else {
-                        inputField.value = item.value;
+                        input.value = value;
                     }
                 }
-            });
+            }
         }
-    } 
+
+        // Opslaan in localStorage bij verandering van inputvelden
+        form.addEventListener("input", () => {
+            var newFormData = new FormData(form);
+            var formDataArray = [];
+            
+            for (var [name, value] of newFormData.entries()) {
+                formDataArray.push({ name, value });
+            }
+
+            localStorage.setItem("formData", JSON.stringify(formDataArray));
+        });
+    }
 });

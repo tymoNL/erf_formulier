@@ -38,10 +38,37 @@ window.addEventListener("load", () => {
 
     validate();
 
-
     let sendForm = document.getElementById('sendForm');
-    sendForm.addEventListener('click', function() {
+    sendForm.addEventListener('click', function () {
         document.getElementById('form').classList.remove('active');
         document.getElementById('result').classList.add('active');
+    });
+
+    ToggleRequiredFields();
+
+
+
+    function ToggleRequiredFields() {
+        var requiredInputs = document.querySelectorAll('fieldset[data-hidable] input[data-required]');
+        var hiddenFieldsets = document.querySelectorAll('fieldset[data-hidable]');
+
+        hiddenFieldsets.forEach(function (fieldset) {
+            if (window.getComputedStyle(fieldset).display === "none") {
+                requiredInputs.forEach(function (input) {
+                    input.setAttribute('required', false); // Correct way to remove 'required'
+                    input.setAttribute('disabled', true);
+                    console.log(input);
+                });
+            } else {
+                requiredInputs.forEach(function (input) {
+                    input.setAttribute('required', 'true'); // Ensure 'required' is correctly set
+                    input.removeAttribute('disabled');
+                });
+            }
+        });
+    }
+
+    document.addEventListener('input', function () {
+        ToggleRequiredFields();
     });
 });

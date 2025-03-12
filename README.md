@@ -29,6 +29,21 @@ Begonnen met de local storage om waardes op te slaan die zijn ingevuld.
 Verkrijger velden dynamisch toevoegen als de vorige is ingevuld.
 BSN nummer check via de (Constraint) Validation API.
 
+#### Week 3
+
+De hidden fieldset zijn omgedraaid zodat als de javascript niet ingeladen is en de css :has selector niet werkt, komen de invoervelden wel tevoorschijn. Dit zorgt ervoor dat de velden altijd berijkbaar zijn.
+
+```cs
+    /* Hide vragen als invoer ze skipt */
+    fieldset.question:has(div[data-skip-sibling] input[type="radio"][value="no"]:checked) {
+        > fieldset[data-hidable] {
+            display: none;
+        }
+    }
+```
+
+De hoofdfieldsets zijn aangepast zodat de vragen als losse fieldsets eruitzien om de vragen te verduidelijken.
+
 ### Link
 
 [Link naar github page](https://tymonl.github.io/erf_formulier/index.html)

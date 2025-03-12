@@ -37,14 +37,9 @@
     <main>
         <section class="container">
             <form id="form" class="active">
-                <section class="questionTitle">
-                    <div><b>1</b></div>
-                    <div>Gegevens van de overledene</div>
-                </section>
-
                 <!-- Vraag 1 -->
                 <fieldset class="question">
-                    <legend>1 Gegevens van de overledene</legend>
+                    <legend><div>1</div> <div>Gegevens van de overledene</div></legend>
 
                     <!-- Vraag 1b -->
                     <fieldset class="mainQuestion">
@@ -58,7 +53,7 @@
                             <div data-skip-sibling="possible">
                                 <label>
                                     <input type="radio" name="radio1-1" value="no" />
-                                    Nee. Ga verder met de volgende vraag.
+                                    Nee.
                                 </label><br />
                                 <label><input type="radio" name="radio1-1" value="yes" />Ja</label>
                             </div>
@@ -66,7 +61,7 @@
                     </fieldset>
 
                     <!-- Vraag 1a.2 -->
-                    <fieldset hidden data-hidable="true">
+                    <fieldset data-hidable="true">
                         <legend>1a.2</legend>
 
                         <div>
@@ -75,14 +70,14 @@
                                 verrekenbeding?
                             </p>
                             <div>
-                                <label><input type="radio" name="radio1-2" value="no" />Nee</label><br />
-                                <label><input type="radio" name="radio1-2" value="yes" />Ja</label>
+                                <label><input type="radio" name="radio1-2" value="no" data-required />Nee</label><br />
+                                <label><input type="radio" name="radio1-2" value="yes" data-required />Ja</label>
                             </div>
                         </div>
                     </fieldset>
 
                     <!-- Vraag 1a.3 -->
-                    <fieldset hidden data-hidable="true">
+                    <fieldset data-hidable="true">
                         <legend>1a.3</legend>
 
                         <div>
@@ -92,26 +87,19 @@
                                 </label>
                             </p>
                             <div>
-                                <input type="date" name="Datum partnersvoorwaarde" id="datumPartnersvoorwaarden" />
+                                <input type="date" name="Datum partnersvoorwaarde" id="datumPartnersvoorwaarden" data-required />
                             </div>
                         </div>
                     </fieldset>
                 </fieldset>
 
-                <section class="questionTitle">
-                    <div><b>2</b></div>
-                    <div>Voor wie doet u aangifte</div>
-                </section>
-
                 <fieldset class="question verkrijgerContainer" id="verkrijgerContainer">
-                    <legend>2 Voor wie doet u aangifte</legend>
+                    <legend><div>2</div> <div>Voor wie doet u aangifte</div></legend>
 
                     <fieldset>
-                        <legend>2a</legend>
+                        <legend>Zijn er verkrijgers voor wie u <b>geen</b> aangifte doet?</legend>
 
                         <div>
-                            <p>Zijn er verkrijgers voor wie u <b>geen</b> aangifte doet?</p>
-
                             <div data-skip-sibling="possible">
                                 <label>
                                     <input type="radio" name="radio2-1" value="no" />
@@ -127,7 +115,45 @@
                         </div>
                     </fieldset>
 
-                    <fieldset id="verkrijger" class="verkrijger" hidden data-hidable="possible">
+                    <fieldset id="verkrijger" class="verkrijger" data-hidable="possible">
+                        <legend>Verkrijger 1</legend>
+
+                        <div>
+                            <label>
+                                <span>Voorletter(s)</span><br />
+                                <input type="text" placeholder="Voorletter(s)" minlength="1" />
+                            </label>
+                            <label>
+                                <span>tussenvoegsel(s)</span><br />
+                                <input type="text" placeholder="tussenvoegsel(s)" />
+                            </label>
+                            <label>
+                                <span>achternaam</span><br />
+                                <input type="text" placeholder="achternaam" minlength="1" />
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset id="verkrijger-2" class="verkrijger" data-hidable="possible">
+                        <legend>Verkrijger 2</legend>
+
+                        <div>
+                            <label>
+                                <span>Voorletter(s)</span><br />
+                                <input type="text" placeholder="Voorletter(s)" minlength="1" />
+                            </label>
+                            <label>
+                                <span>tussenvoegsel(s)</span><br />
+                                <input type="text" placeholder="tussenvoegsel(s)" />
+                            </label>
+                            <label>
+                                <span>achternaam</span><br />
+                                <input type="text" placeholder="achternaam" minlength="1" />
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset id="verkrijger-3" class="verkrijger" data-hidable="possible">
                         <legend>Verkrijger 1</legend>
 
                         <div>
@@ -147,16 +173,17 @@
                     </fieldset>
                 </fieldset>
 
-                <section class="questionTitle">
-                    <div><b>3</b></div>
-                    <div>Aanvraag toepassing van de bedrijfsopvolgingsregeling</div>
-                </section>
-
                 <fieldset class="question">
-                    <legend>3 Aanvraag toepassing van de bedrijfsopvolgingsregeling</legend>
+                    <legend>
+                        <div>3</div>
+                        <div>Aanvraag toepassing van de bedrijfsopvolgingsregeling</div>
+                    </legend>
 
                     <fieldset>
-                        <legend>3a</legend>
+                        <legend>
+                            Zijn er personen, erkende doelen of instellingen die gebruik willen maken van de
+                            bedrijfsopvolgingsregeling?
+                        </legend>
 
                         <div>
                             <p>
@@ -193,14 +220,7 @@
                                 <button type="button" autofocus data-close>Sluiten</button>
                             </dialog>
 
-
-
                             <div class="twoColumns" data-skip-sibling="possible">
-                                <p>
-                                    Zijn er personen, erkende doelen of instellingen die gebruik willen maken van de
-                                    bedrijfsopvolgingsregeling?
-                                </p>
-
                                 <label>
                                     <input type="radio" name="radio3-1" value="no" />
                                     Nee. Ga naar vraag 4.
@@ -216,7 +236,7 @@
                     </fieldset>
 
                     <!-- Vraag 3b -->
-                    <fieldset hidden data-hidable="true">
+                    <fieldset data-hidable="true">
                         <legend>3b</legend>
 
                         <div>
@@ -231,14 +251,14 @@
                             <div class="twoColumns">
                                 <label>
                                     Bsn/RSIN/fiscaal identificatienummer van de onderneming
-                                    <input placeholder="012345678" data-custom-bsn />
+                                    <input placeholder="012345678" name="bsn nummer" data-custom-bsn data-required />
                                 </label>
                             </div>
 
                             <div>
                                 <label>
                                     Naam van de onderneming
-                                    <input type="text" placeholder="test.BV" />
+                                    <input type="text" name="Onderneming" placeholder="test.BV" data-required />
                                 </label>
                             </div>
 
@@ -254,7 +274,9 @@
     </main>
 
     <footer>
-        <div id="result"></div>
+        <div id="result" class="container">
+            <p>Uw formulier is succesvol niet verzonden want ik doe er niks mee :)</p>
+        </div>
     </footer>
 
 </body>

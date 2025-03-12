@@ -29,6 +29,7 @@ input[type="radio"] {
 }
 
 input {
+
     &:user-invalid {
         border-color: crimson;
         background-color: lightcoral;
@@ -144,18 +145,23 @@ main {
         &.active {
             display: block;
         }
-    }
 
-    .questionTitle {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: .5rem;
-        margin-bottom: 1em;
+        > fieldset {
+            border: none;
 
-        div {
-            color: var(--color-blue);
-            background: var(--color-yellow);
-            padding: 0.25em 0.5em;
+            > legend {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: .5rem;
+                width: 100%;
+                margin-bottom: 1em;
+
+                div {
+                    color: var(--color-blue);
+                    background: var(--color-yellow);
+                    padding: 0.25em 0.5em;
+                }
+            }
         }
     }
 
@@ -241,9 +247,13 @@ main {
     }
 
     /* Hide vragen als invoer ze skipt */
-    fieldset.question:has(div[data-skip-sibling] input[type="radio"][value="yes"]:checked) {
-        > fieldset[hidden] {
-            display: grid;
+    fieldset.question:has(div[data-skip-sibling] input[type="radio"][value="no"]:checked) {
+        > fieldset[data-hidable] {
+            display: none;
         }
+    }
+
+    dialog {
+        max-width: 80vw;
     }
 }
