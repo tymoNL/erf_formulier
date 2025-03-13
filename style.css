@@ -83,6 +83,38 @@ a[role="button"].blue {
 input {
     border: 1px solid #b5b5bc;
     color: #070721;
+
+&:not([type="checkbox"],[type="radio"]) {
+    height: 2.5em;
+    padding: 0 0.25em;
+}
+
+    &:required {
+        border-right: 3px solid orangered;
+
+        &:user-invalid {
+            border-right: 3px solid crimson;
+        }
+
+        &:user-valid {
+            border-right: 3px solid forestgreen;
+        }
+    }
+}
+
+label:has(.astrix)::after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+label:has(.astrix):has(input:required:user-valid)::after {
+    content: "\f00c";
+    color: forestgreen;
+}
+
+label:has(.astrix):has(input:required:user-invalid)::after {
+    content: "\f00d";
+    color: crimson;
 }
 
 /**********/
@@ -152,7 +184,7 @@ main {
             > legend {
                 display: grid;
                 grid-template-columns: auto 1fr;
-                gap: .5rem;
+                grid-gap: .5rem;
                 width: 100%;
                 margin-bottom: 1em;
 
@@ -172,18 +204,19 @@ main {
 
     .question {
         margin-bottom: 1em;
+        padding: 0;
 
         fieldset {
             > div {
                 display: grid;
                 align-items: center;
                 grid-template-columns: 1fr;
-                gap: 1em;
+                grid-gap: 1em;
 
                 &:has(p):has(div) {
                     grid-template-columns: 1fr 1fr;
 
-                    @media (max-width: 457px) {
+                    @media (max-width: 557.98px) {
                         grid-template-columns: 1fr;
                     }
                 }
@@ -191,7 +224,7 @@ main {
                 .twoColumns {
                     grid-column: 1 / span 2;
 
-                    @media (max-width: 457px) {
+                    @media (max-width: 557.98px) {
                         grid-column: 1;
                     }
                 }
@@ -200,7 +233,7 @@ main {
             &.verkrijger > div {
                 grid-template-columns: 1fr 1fr 1fr;
 
-                @media (max-width: 457px) {
+                @media (max-width: 557.98px) {
                     grid-template-columns: 1fr;
                 }
             }

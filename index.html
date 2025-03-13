@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
 
     <!-- Font-awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <title>Erfbelasingsformulier</title>
     <link rel="icon" type="image/x-icon" href="/images/ns_logo.png">
@@ -53,7 +53,7 @@
                             <div data-skip-sibling="possible">
                                 <label>
                                     <input type="radio" name="radio1-1" value="no" />
-                                    Nee.
+                                    Nee
                                 </label><br />
                                 <label><input type="radio" name="radio1-1" value="yes" />Ja</label>
                             </div>
@@ -67,7 +67,7 @@
                         <div>
                             <p>
                                 Hadden de overledene en diens partner een finaal
-                                verrekenbeding?
+                                verrekenbeding?<span class="astrix">*</span>
                             </p>
                             <div>
                                 <label><input type="radio" name="radio1-2" value="no" data-required />Nee</label><br />
@@ -84,6 +84,7 @@
                             <p>
                                 <label for="datumPartnersvoorwaarden">
                                     Datum huwelijkse of partnerschapsvoorwaarden
+                                    <span class="astrix">*</span>
                                 </label>
                             </p>
                             <div>
@@ -121,15 +122,15 @@
                         <div>
                             <label>
                                 <span>Voorletter(s)</span><br />
-                                <input type="text" placeholder="Voorletter(s)" minlength="1" />
+                                <input type="text" placeholder="Voorletter(s)" minlength="1" data-required />
                             </label>
                             <label>
                                 <span>tussenvoegsel(s)</span><br />
-                                <input type="text" placeholder="tussenvoegsel(s)" />
+                                <input type="text" placeholder="tussenvoegsel(s)" data-required />
                             </label>
                             <label>
                                 <span>achternaam</span><br />
-                                <input type="text" placeholder="achternaam" minlength="1" />
+                                <input type="text" placeholder="achternaam" minlength="1" data-required />
                             </label>
                         </div>
                     </fieldset>
@@ -154,7 +155,7 @@
                     </fieldset>
 
                     <fieldset id="verkrijger-3" class="verkrijger" data-hidable="possible">
-                        <legend>Verkrijger 1</legend>
+                        <legend>Verkrijger 3</legend>
 
                         <div>
                             <label>
@@ -250,14 +251,16 @@
                             </p>
                             <div class="twoColumns">
                                 <label>
-                                    Bsn/RSIN/fiscaal identificatienummer van de onderneming
+                                    Bsn/RSIN/fiscaal identificatienummer van de onderneming<span class="astrix">*</span>
+                                    <br />
                                     <input placeholder="012345678" name="bsn nummer" data-custom-bsn data-required />
                                 </label>
                             </div>
 
                             <div>
                                 <label>
-                                    Naam van de onderneming
+                                    Naam van de onderneming<span class="astrix">*</span>
+                                    <br />
                                     <input type="text" name="Onderneming" placeholder="test.BV" data-required />
                                 </label>
                             </div>

@@ -43,6 +43,7 @@ De hidden fieldset zijn omgedraaid zodat als de javascript niet ingeladen is en 
 ```
 
 De hoofdfieldsets zijn aangepast zodat de vragen als losse fieldsets eruitzien om de vragen te verduidelijken.
+De inputs die required zijn hebben een oranje border en de vraag heeft een astrix (*) om te laten zien dat deze vraag required is. Als de waarde niet goed is wordt de border rood samen met de achtergrond van de input en er wordt een kruis achter de input gezet. Als de waarde goed is wordt de input border groen, de achtergrond krijgt een lichtere groen en achter de input komt een checkmark.
 
 ### Link
 

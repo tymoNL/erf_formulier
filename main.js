@@ -1,4 +1,6 @@
 window.addEventListener("load", () => {
+
+    /******  DIALOG ********/
     // Find all elements that trigger modals
     document.querySelectorAll("[data-dialog-target]").forEach(trigger => {
         trigger.addEventListener("click", (event) => {
@@ -20,8 +22,10 @@ window.addEventListener("load", () => {
             }
         });
     });
+    /*********************/
 
-    /* Validation */
+
+    /*************  Validation ****************/
     let i = document.querySelector('input[data-custom-bsn]')
 
     let validate = function () {
@@ -43,21 +47,22 @@ window.addEventListener("load", () => {
         document.getElementById('form').classList.remove('active');
         document.getElementById('result').classList.add('active');
     });
+    /*****************************/
 
+
+    /************** Make inputs required or disabled ***********/
     ToggleRequiredFields();
 
-
-
     function ToggleRequiredFields() {
-        var requiredInputs = document.querySelectorAll('fieldset[data-hidable] input[data-required]');
         var hiddenFieldsets = document.querySelectorAll('fieldset[data-hidable]');
 
         hiddenFieldsets.forEach(function (fieldset) {
+            var requiredInputs = fieldset.querySelectorAll('input[data-required]'); // Only get inputs inside this fieldset
+
             if (window.getComputedStyle(fieldset).display === "none") {
                 requiredInputs.forEach(function (input) {
-                    input.setAttribute('required', false); // Correct way to remove 'required'
-                    input.setAttribute('disabled', true);
-                    console.log(input);
+                    input.removeAttribute('required'); // Correct way to remove 'required'
+                    input.setAttribute('disabled', 'true');
                 });
             } else {
                 requiredInputs.forEach(function (input) {
@@ -71,4 +76,6 @@ window.addEventListener("load", () => {
     document.addEventListener('input', function () {
         ToggleRequiredFields();
     });
+    /************************************************************/
+
 });
